@@ -60,7 +60,8 @@ services:
         env_file:
             - ./frontend/.env
         volumes:
-            - ./frontend:/app
+            - ./frontend/:/app
+            - node_modules:/app/node_modules
         ports:
             - 3000:3000
         depends_on:
@@ -68,4 +69,5 @@ services:
 
 volumes:
     postgres_data:
+    node_modules:
     

@@ -4,7 +4,7 @@ djangorestframework
 django-rest-knox
 django-cors-headers
 dj-rest-auth
-django-allauth
+django-allauth[socialaccount]
 djangorestframework-simplejwt
 djangorestframework-camel-case
 Pillow
