@@ -1,3 +1,4 @@
+import asyncio
 import datetime
 import os
 from collections.abc import AsyncGenerator
@@ -74,6 +75,10 @@ async def generate_zip() -> AsyncGenerator[bytes]:
                             yield chunk
 
                 yield (archive_path, modified_at, mode, NO_COMPRESSION_64, file_content_iterator())
+
+                # Uncomment this to see even more the effect of a blocking
+                # operation when you download the zip.
+                # await asyncio.sleep(1)
 
         workbook.close()
 
