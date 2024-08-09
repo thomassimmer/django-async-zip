@@ -56,7 +56,7 @@ async def generate_zip() -> AsyncGenerator[bytes]:
 
             files = [
                 'assets/example.txt'
-                for _ in range(3 if settings.IS_TESTING else 100)
+                for _ in range(3 if settings.IS_TESTING else 1000)
             ]
 
             for file in files:

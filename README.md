@@ -15,7 +15,7 @@ NeoTemplate is a full-stack website template built using Next.js with Material U
 <br>
 
 <p align="center">
-<img  height="400" src="./docs/images/django-async-zip.png">
+<img  height="400" src="./docs/images/django-async-zip.gif">
 </p>
 
 ## Installation
