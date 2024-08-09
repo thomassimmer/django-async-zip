@@ -41,7 +41,7 @@ export default function ConnectionModal() {
         py={2}
         pt={8}
       >
-        <Image src={logo} alt='NeoTemplate Logo' width={80} />
+        <Image src={logo} alt='DjangoAsyncZip Logo' width={80} />
         <Typography
           variant='h3'
           color={theme.palette.primary.main}

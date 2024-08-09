@@ -1,11 +1,15 @@
+aiofiles
 Django
-python-environ
 djangorestframework
-psycopg2-binary
+django-rest-knox
 django-cors-headers
 dj-rest-auth
 django-allauth
 djangorestframework-simplejwt
 djangorestframework-camel-case
 Pillow
+psycopg2-binary
+python-environ
+stream-zip
 uvicorn[standard]
+xlsxwriter

@@ -1,4 +1,6 @@
-# NeoTemplate
+# DjangoAsyncZip
+
+DjangoAsyncZip is a demo project to show how to serve big zip files asynchronously while being memory efficient and using Django Rest Framework authentication. It is based on NeoTemplate.
 
 NeoTemplate is a full-stack website template built using Next.js with Material UI, NextAuth, and i18next for the frontend, and Django with Django Rest Framework (DRF) for the backend. It provides a foundation for creating websites with essential features already implemented, including:
 
@@ -12,33 +14,26 @@ NeoTemplate is a full-stack website template built using Next.js with Material U
 
 <br>
 
-![NeoTemplate](/docs/images/neotemplate.gif)
-
 <p align="center">
-<img clear="left" height="400" src="./docs/images/mobile.png">
-<img clear="right" height="400" src="./docs/images/dark_mobile.png">
+<img  height="400" src="./docs/images/django-async-zip.png">
 </p>
-
 
 ## Installation
 
-- Right-click this button to create a repository using this one as a template.
-
-[![Start with this template](https://img.shields.io/badge/Click_Me!-37a779)](https://github.com/new?template_owner=thomassimmers&template_name=NeoTemplate&owner=%40me&name=NeoTemplate&description=My+clone+repository&visibility=public)
-
+- Clone the project
 - Ensure you have Docker and Docker Compose installed.
 - Create `.env` files in the `backend/` and `frontend/` folders and populate them using the respective `.env.template` files.
 
 ### Local
 
 ```bash
-docker-compose up --build -d
+docker-compose up --build
 ```
 
 ### Production
 
 ```bash
-docker-compose -f docker-compose.prod.yml up --build -d
+docker-compose -f docker-compose.prod.yml up --build
 ```
 
 If Docker encounters permission issues:
@@ -60,27 +55,23 @@ python manage.py createsuperuser
 
 Then navigate to: [http://localhost:8000/admin/](http://localhost:8000/admin/)
 
-## What do I need to start from here ?
+## Run tests
 
-1. Change every occurence of `NeoTemplate`, `neotemplate`, `Neo` and `Template` by your desired name.
-2. Change the logo at `frontend/public/favicon.ico`, `frontend/public/logo.png` and at `frontend/components/icons/logo.png`.
-
-And that's it, start implementing your ideas!
-
-## Troubleshooting
-
-- You do not have email server to set in the .env file ?
-
-1. Uncomment these lines in backend/core/settings.py :
-
-```python
-# if DEBUG:
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-```
-
-2. In the same file, set `ACCOUNT_EMAIL_VERIFICATION` to `False`.
-3. Restart the `backend`container with:
+If you have a backend container running:
 
 ```bash
-docker restart backend
+docker exec -it backend bash
+python manage.py test
+```
+
+Otherwise, in your normal terminal:
+
+```bash
+python -m venv ".venv"
+source .venv/bin/activate
+pip install -r requirements
+cd backend
+export SECRET_KEY='a'
+export JWT_SECRET_KEY='a'
+python manage.py test
 ```

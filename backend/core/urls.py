@@ -7,7 +7,7 @@ from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 from rest_framework import routers
 
-from api.views import UserViewSet, contact
+from api.views import UserViewSet, contact, generate_zip_view
 
 router = routers.DefaultRouter()
 
@@ -47,6 +47,11 @@ urlpatterns = (
             name="account_confirm_email",
         ),
 
+        path(
+            'api/generate-zip/',
+            generate_zip_view,
+            name="generate_zip"
+        )
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

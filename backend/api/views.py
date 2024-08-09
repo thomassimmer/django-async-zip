@@ -2,14 +2,16 @@ from smtplib import SMTPException
 
 from django.conf import settings
 from django.core.mail import send_mail
-from django.http import JsonResponse
+from django.http import Http404, JsonResponse, StreamingHttpResponse
 from rest_framework import mixins, viewsets
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 
+from api.async_jwt_authentication import AsyncJWTAuthentication
 from api.models import User
 from api.permissions import UserPermission
 from api.serializers import ContactFormSerializer, UserSerializer
+from api.utils import generate_zip
 
 
 @permission_classes([UserPermission])
@@ -49,3 +51,20 @@ def contact(request):
         return JsonResponse(serializer.errors, status=400)
 
     return JsonResponse({"ok": "ok"})
+
+
+async def generate_zip_view(request) -> StreamingHttpResponse:
+    async_jwt_authentication_instance = AsyncJWTAuthentication()
+    request_user, _ = await async_jwt_authentication_instance.authenticate(request) or (None, None)
+
+    if not request_user:
+        raise Http404
+
+    return StreamingHttpResponse(
+        streaming_content=generate_zip(),
+        headers={
+            "Content-Type": 'application/zip',
+            "Content-Disposition": f'attachment; filename="example.zip"',
+            "Access-Control-Expose-Headers": "Content-Disposition",
+        },
+    )

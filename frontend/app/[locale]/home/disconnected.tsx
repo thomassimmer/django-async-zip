@@ -24,8 +24,8 @@ export default function HomeDisconnected() {
       py={4}
     >
       <Typography variant='h1'>
-        <span style={{ color: theme.palette.text.primary }}>Neo</span>
-        <span style={{ color: theme.palette.primary.main }}>Template</span>
+        <span style={{ color: theme.palette.text.primary }}>Django</span>
+        <span style={{ color: theme.palette.primary.main }}>AsyncZip</span>
       </Typography>
 
       <Typography variant='h2'>

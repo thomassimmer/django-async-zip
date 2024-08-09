@@ -1,4 +1,5 @@
 import os
+import sys
 from datetime import timedelta
 from pathlib import Path
 
@@ -7,10 +8,15 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
+JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
+
+if not SECRET_KEY or not JWT_SECRET_KEY:
+    raise Exception("Did you forget to set SECRET_KEY and JWT_SECRET_KEY ?")
 
 DEBUG = int(os.environ.get("DEBUG", default=0))
+IS_TESTING = 'test' in sys.argv
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'backend', 'neotemplate.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'backend', 'django-async-zip.com']
 
 FRONTEND_HOST = os.environ.get("FRONTEND_HOST")
 
@@ -87,7 +93,7 @@ SIMPLE_JWT = {
     'UPDATE_LAST_LOGIN': True,
     "USER_ID_FIELD": "id",
     "USER_ID_CLAIM": "id",
-    "SIGNING_KEY": os.environ.get("JWT_SECRET_KEY"),
+    "SIGNING_KEY": JWT_SECRET_KEY,
 }
 
 AUTH_USER_MODEL = "api.User"
@@ -127,12 +133,12 @@ REST_FRAMEWORK = {
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
-    "https://neotemplate.com",
+    "https://django-async-zip.com",
 ]
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
-    "https://neotemplate.com",
+    "https://django-async-zip.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -159,7 +165,7 @@ DATABASES = {
         "USER": os.environ.get("POSTGRES_USER", "user"),
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "password"),
         "HOST": os.environ.get("POSTGRES_HOST", "db"),
-        "PORT": os.environ.get("POSTGRES_PORT", "5434"),
+        "PORT": os.environ.get("POSTGRES_PORT", "5436"),
     }
 }
 
@@ -200,10 +206,10 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Emails / Accounts
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# if DEBUG:
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = os.environ.get("EMAIL_HOST", "")
 EMAIL_PORT = 587
@@ -215,7 +221,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/confirm-email/done/'
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/confirm-email/done/'

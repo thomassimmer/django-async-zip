@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
       <h2>Privacy Policy</h2>
 
       <p>
-        NeoTemplate.com (“NeoTemplate”, “we” or “us”) is committed to protecting
+        DjangoAsyncZip.com (“DjangoAsyncZip”, “we” or “us”) is committed to protecting
         your privacy. This Privacy Policy explains the methods and reasons we
         collect, use, disclose, transfer, and store your information. If you
         have any questions about the contents of this policy, don’t hesitate to
@@ -29,9 +29,9 @@ export default function PrivacyPolicy() {
       <p>
         If you do not consent to the collection and use of information from or
         about you in accordance with this Privacy Policy, then you are not
-        permitted to use NeoTemplate or any services provided on&nbsp;
+        permitted to use DjangoAsyncZip or any services provided on&nbsp;
         <Link href='/' rel='noopener noreferrer' underline='hover'>
-          https://neotemplate.com
+          https://django-async-zip.com
         </Link>
         .
       </p>
@@ -39,8 +39,8 @@ export default function PrivacyPolicy() {
       <h3>Applicable Law</h3>
 
       <p>
-        NeoTemplate is headquartered in Paris, France. By viewing any content or
-        otherwise using the services offered by NeoTemplate, you consent to the
+        DjangoAsyncZip is headquartered in Paris, France. By viewing any content or
+        otherwise using the services offered by DjangoAsyncZip, you consent to the
         transfer of information to the European Union to the extent applicable,
         and the collection, storage, and processing of information under
         European Union law.
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
         Most Internet browsers automatically accept cookies. You can instruct
         your browser, by changing its settings, to stop accepting cookies or to
         prompt you before accepting a cookie from the websites you visit. When
-        you connect to NeoTemplate.com using your password, a cookie will be
+        you connect to DjangoAsyncZip.com using your password, a cookie will be
         stored on your computer so you do not have to re-enter it repeatedly
         during that session.
       </p>
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
       <h3>Contact Us</h3>
 
       <p>
-        At NeoTemplate, we believe our talented customer service staff will be
+        At DjangoAsyncZip, we believe our talented customer service staff will be
         able to resolve any issues you may have using our services. If you would
         like additional information about this privacy policy, please&nbsp;
         <Link

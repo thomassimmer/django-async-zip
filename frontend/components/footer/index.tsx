@@ -69,7 +69,7 @@ export default function Footer() {
             }}
             href='/'
           >
-            <Typography>NeoTemplate</Typography>
+            <Typography>DjangoAsyncZip</Typography>
           </Link>
 
           <Divider flexItem orientation='vertical' />

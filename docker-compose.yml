@@ -13,10 +13,10 @@ services:
         env_file:
             - ./backend/.env
         ports:
-        - 5434:5434
+        - 5436:5436
         expose:
-        - "5434" # Publishes 5434 to other containers but NOT to host machine
-        command: -p 5434
+        - "5436" # Publishes 5436 to other containers but NOT to host machine
+        command: -p 5436
 
 
     backend:

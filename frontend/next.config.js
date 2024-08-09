@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: false,
   images: {
-    domains: ['localhost', 'neotemplate.com'],
+    domains: ['localhost', 'django-async-zip.com'],
   },
   async redirects() {
     return [];
